@@ -1,9 +1,15 @@
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 class Settings:
-    NASA_API_KEY = "XgYImguXI4JbgdZTBe5VCkVCAQLaKj6asttiFDMr"
-    DB_USERNAME = "your_db_username"
-    DB_PASSWORD = "your_db_password"
-    DB_HOST = "your_rds_instance_endpoint"
-    DB_PORT = 5432
-    DB_NAME = "nasa_data_db"
+    NASA_API_KEY = os.getenv("NASA_API_KEY")
+    DB_USERNAME = os.getenv("DB_USERNAME")
+    DB_PASSWORD = os.getenv("DB_PASSWORD")
+    DB_HOST = os.getenv("DB_HOST")
+    DB_PORT = int(os.getenv("DB_PORT", 5432))
+    DB_NAME = os.getenv("DB_NAME")
 
 settings = Settings()
